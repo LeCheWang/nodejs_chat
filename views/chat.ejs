@@ -1,14 +1,25 @@
-<input type="text" id="name" placeholder="your name">
-<input type="text" id="room" placeholder="room">
-<button id="btn_join">Join</button>
-<br>
-<br>
-<input type="text" id="ip_message" placeholder="message">
-<button id="btn_send">Gửi</button>
+<link rel="stylesheet" href="css/style.css">
 
-<ul id="ul_message">
+<div class="container">
+    <div class="container_join">
+        <input type="text" id="name" placeholder="your name">
+        <input type="text" id="room" placeholder="room">
+        <button id="btn_join">Join</button>
+    </div> 
     
-</ul>
+    <ul id="ul_message">
+        <li>fasd</li>
+        <li>fasd</li>
+        <li>fasd</li>
+        <li class="right">fasdfadfafdadfasfsad</li>
+        <li>fasd</li>
+    </ul>
+
+    <div class="container_send">
+        <input type="text" id="ip_message" placeholder="message">
+        <button id="btn_send">Gửi</button>
+    </div>
+</div>
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="js/client.js"></script>

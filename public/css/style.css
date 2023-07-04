@@ -1,0 +1,68 @@
+body, * {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: antiquewhite;
+}
+
+.container{
+    width: 400px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: azure;
+}
+
+.container_join {
+    width: 100%;
+    height: 5%;
+    display: flex;
+}
+.container_join input{
+    width: 40%;
+    padding: 10px;
+}
+.container_join button{
+    width: 20%;
+    padding: 10px;
+}
+
+#ul_message{
+    list-style: none;
+    width: 100%;
+    height: 90%; 
+    overflow: scroll;
+}
+
+#ul_message li {
+    width: fit-content;
+    background-image: linear-gradient(rgb(136, 0, 255), rgb(230, 0, 255), rgb(255, 0, 225));
+    margin-top: 5px;
+    padding: 5px;
+    color: white;
+    border-radius: 8px;
+    float: left;
+    clear: both;
+}
+
+.right{
+    float: right !important; 
+}
+
+.container_send{
+    width: 100%;
+    height: 5%;
+    display: flex;
+}
+
+#ip_message{
+    width: 80%;
+    padding: 10px;
+}
+#btn_send{
+    width: 20%;
+    padding: 10px;
+}
