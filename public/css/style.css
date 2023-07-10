@@ -37,10 +37,15 @@ body{
     overflow: scroll;
 }
 
-#ul_message li {
+#ul_message li{
+    display: flex;
+    align-items: center; 
+    margin-top: 5px;
+}
+
+#ul_message li span{
     width: fit-content;
     background-image: linear-gradient(rgb(136, 0, 255), rgb(230, 0, 255), rgb(255, 0, 225));
-    margin-top: 5px;
     padding: 5px;
     color: white;
     border-radius: 8px;
@@ -48,8 +53,37 @@ body{
     clear: both;
 }
 
+#ul_message li:hover .choose_emotion{
+    display: block;
+}
+
+.choose_emotion{
+    display: none;
+    position: relative;
+    margin: 5px;
+}
+
+.emotions{
+    display: flex;
+    position: absolute;
+    background-color: #333;
+    border-radius: 12px;
+    padding: 12px;
+    bottom: 24px; 
+}
+
+.emotions i {
+    margin: 4px;
+    transition: linear 0.1s;
+}
+
+.emotions i:hover{
+    transform: scale(1.5);
+}
+
 .right{
-    float: right !important; 
+    /* float: right !important;  */
+    flex-direction: row-reverse;
 }
 
 .container_send{

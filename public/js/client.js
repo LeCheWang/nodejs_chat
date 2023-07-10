@@ -56,3 +56,26 @@ socket.on("thread", function(data){
 
     ul_message.scrollTop = ul_message.scrollHeight
 })
+
+let choose_emotion = document.getElementsByClassName("choose_emotion");
+for (let ce of choose_emotion){
+    ce.addEventListener('click', (e)=>{ 
+        console.log(e.target);
+        if (e.target.innerHTML.toString().trim().length==0){
+            console.log('ra');
+            e.target.innerHTML = `
+            <div class="emotions">
+                <i class="fa-solid fa-heart" style="color: #ff0000;"></i>
+                <i class="fa-solid fa-face-laugh-beam" style="color: #ffc800;"></i>
+                <i class="fa-solid fa-face-sad-tear" style="color: #fbff00;"></i>
+                <i class="fa-solid fa-face-hushed" style="color: #ffdd00;"></i>
+                <i class="fa-solid fa-face-angry" style="color: #ffea00;"></i>
+            </div>
+            `
+        }else {
+            console.log('an');
+            e.target.innerHTML = ``
+        }
+        
+    })
+}
