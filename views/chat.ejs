@@ -1,24 +1,42 @@
 <link rel="stylesheet" href="css/style.css">
 
-<div class="container">
-    <div class="container_join">
-        <input type="text" id="name" placeholder="your name">
-        <input type="text" id="room" placeholder="room">
-        <button id="btn_join">Join</button>
-    </div> 
-    
-    <ul id="ul_message">
-        <li>fasd</li>
-        <li>fasd</li>
-        <li>fasd</li>
-        <li class="right">fasdfadfafdadfasfsad</li>
-        <li>fasd</li>
+<div style="display: flex;">
+    <ul class="list_user" style="display: none;">
+        <%  accounts.forEach(account => { %>
+
+            <li>
+                <div>
+                    Username: <p><%= account.username %></p>
+                </div>
+                <div>
+                    FullName: <p><%= account.full_name %></p>
+                </div>
+            </li> 
+
+        <% }) %>
+        
     </ul>
 
-    <div class="container_send">
-        <input type="text" id="ip_message" placeholder="message">
-        <button id="btn_send">Gửi</button>
+    <div class="container">
+        <div class="container_join"> 
+            <input type="text" id="room" placeholder="room">
+            <button id="btn_join">Join</button>
+        </div> 
+        
+        <ul id="ul_message">
+            <li>fasd</li>
+            <li>fasd</li>
+            <li>fasd</li>
+            <li class="right">fasdfadfafdadfasfsad</li>
+            <li>fasd</li>
+        </ul>
+
+        <div class="container_send">
+            <input type="text" id="ip_message" placeholder="message">
+            <button id="btn_send">Gửi</button>
+        </div>
     </div>
+
 </div>
 
 <script src="/socket.io/socket.io.js"></script>

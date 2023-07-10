@@ -4,7 +4,7 @@ body, * {
 }
 
 body{
-    background-color: antiquewhite;
+    background-color: rgb(208, 207, 206);
 }
 
 .container{
@@ -22,7 +22,7 @@ body{
     display: flex;
 }
 .container_join input{
-    width: 40%;
+    width: 80%;
     padding: 10px;
 }
 .container_join button{
@@ -65,4 +65,25 @@ body{
 #btn_send{
     width: 20%;
     padding: 10px;
+}
+
+/* list user css  */
+.list_user{
+    list-style: none;
+    background-color: azure;
+    width: 30%;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100vh;
+    overflow: scroll;
+}
+.list_user li {
+    background-color: cyan;
+    border-radius: 14px;
+    padding: 16px;
+    margin-top: 10px;
+}
+
+.list_user li div {
+    display: flex;
 }

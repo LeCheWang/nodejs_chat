@@ -4,6 +4,8 @@ const http = require("http")
 const server = http.createServer(app)
 const {Server} = require("socket.io")
 const io = new Server(server)
+const connectDB = require("./configs/database")
+const router = require("./routers")
 
 app.use(express.json())
 
@@ -26,9 +28,12 @@ io.on("connection", function(client){
     })
 })
 
-app.get('/chat', (req, res) => {
-    return res.render("chat.ejs")
-});
+connectDB();
+router(app);
+
+// app.get('/chat', (req, res) => {
+//     return res.render("chat.ejs")
+// });
 
 
 server.listen(5000, ()=>{
