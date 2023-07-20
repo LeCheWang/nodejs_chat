@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="css/style.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <div style="display: flex;">
     <ul class="list_user" style="display: none;">
         <%  accounts.forEach(account => { %>
@@ -24,11 +24,23 @@
         </div> 
         
         <ul id="ul_message">
-            <li>fasd</li>
-            <li>fasd</li>
-            <li>fasd</li>
-            <li class="right">fasdfadfafdadfasfsad</li>
-            <li>fasd</li>
+            <li>
+                <span>tin nhắn</span>
+                <i onclick="show(event)" class="choose_emotion fa-regular fa-face-smile" style="color: #f5ed00;"></i> 
+            </li>
+            <li>
+                <span>tin nhắn1</span>
+                <i onclick="show(event)" class="choose_emotion fa-regular fa-face-smile" style="color: #f5ed00;"></i> 
+            </li>
+            <li class="right">
+                <span>tin nhắn2</span>
+                <i onclick="show(event)" class="choose_emotion fa-regular fa-face-smile" style="color: #f5ed00;"></i> 
+            </li>
+            <li>
+                <span>tin nhắn3</span>
+                <i onclick="show(event)" class="choose_emotion fa-regular fa-face-smile" style="color: #f5ed00;"></i> 
+            </li>
+             
         </ul>
 
         <div class="container_send">

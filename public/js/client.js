@@ -46,7 +46,10 @@ socket.on("thread", function(data){
     const obj = JSON.parse(data)
 
     const li = document.createElement("li")
-    li.innerHTML = obj.message;
+    li.innerHTML = `
+        <span>${obj.message}</span>
+        <i onclick="show(event)" class="choose_emotion fa-regular fa-face-smile" style="color: #f5ed00;"></i> 
+    `; 
 
     if (obj.name === my_name){
         li.classList.add("right")
@@ -56,3 +59,22 @@ socket.on("thread", function(data){
 
     ul_message.scrollTop = ul_message.scrollHeight
 })
+ 
+function show(e){
+    if (e.target.classList.contains("choose_emotion")){
+        if (e.target.innerHTML.toString().trim().length === 0){
+            e.target.innerHTML = `
+                <div class="emotions">
+                    <i class="fa-sharp fa-solid fa-heart" style="color: #ff0000;"></i>
+                    <i class="fa-solid fa-face-laugh-beam" style="color: #fbff00;"></i>
+                    <i class="fa-solid fa-face-sad-tear" style="color: #fbff00;"></i>
+                    <i class="fa-solid fa-face-angry" style="color: #ffc800;"></i> 
+                </div>
+            `
+        }else {
+            e.target.innerHTML = ''
+        }
+    } 
+}
+
+ 
