@@ -42,8 +42,10 @@ body{
     align-items: center;
     margin-top: 5px;
 }
-
-#ul_message li span{
+#ul_message li span {
+    position: relative;
+}
+#ul_message li span p{
     width: fit-content;
     background-image: linear-gradient(rgb(136, 0, 255), rgb(230, 0, 255), rgb(255, 0, 225));
     padding: 5px;
