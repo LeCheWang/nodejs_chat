@@ -41,23 +41,47 @@ btn_join.addEventListener('click', ()=>{
 
 const sendMessage = ()=>{
     const message = ip_message.value
-    if (!message){
-        return;
-    }
+    // if (!message){
+    //     return;
+    // }
 
     let id = ''
     for (let i = 0; i<8; i++){
         id += Math.floor(Math.random()*10)
-    }
-
-    const obj = {
-        id: +id,
-        name: my_name,
-        message: message
-    }
-    socket.emit("message", JSON.stringify(obj));
-    ip_message.value = ''
-    ip_message.focus();
+    } 
+    if (ip_image?.files[0]){ 
+        const formData = new FormData()
+        formData.append("img", ip_image.files[0])
+        fetch('/api/uploads', 
+        {
+            method: "POST", 
+            body: formData,
+            
+        })
+        .then(res=> res.json())
+        .then(json => { 
+            const obj = {
+                id: +id,
+                name: my_name,
+                message: json.url
+            }
+            socket.emit("message", JSON.stringify(obj));
+            img_message.style.display = 'none';
+            return;
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }else {
+        const obj = {
+            id: +id,
+            name: my_name,
+            message: message
+        }
+        socket.emit("message", JSON.stringify(obj));
+        ip_message.value = ''
+        ip_message.focus();
+    }    
 }
 
 btn_send.addEventListener("click", sendMessage)
@@ -74,7 +98,7 @@ socket.on("thread", function(data){
     const li = document.createElement("li")
     li.innerHTML = `
         <span id="${obj.id}">
-            <p>${obj.message}</p>
+            <p>${obj.message.startsWith("https")? '<img width="200" src="' + obj.message + '">': obj.message}</p>
         </span>
         <i onclick="show(event, ${obj.id})" class="choose_emotion fa-regular fa-face-smile" style="color: #f5ed00;"></i> 
     `; 
@@ -141,3 +165,11 @@ socket.on("emotion", (data)=>{
     span_message.appendChild(emotion) 
 })
  
+
+const ip_image = document.getElementById('ip_image')
+const img_message = document.getElementById("img_message")
+
+ip_image.addEventListener("change", ()=>{
+    img_message.src = URL.createObjectURL(ip_image.files[0])
+    img_message.style.display = 'block'
+})
